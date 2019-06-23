@@ -19,3 +19,7 @@ const pool = require('mysql').createPool({
   database: 'AISteel' # database name
 })
 ```
+
+### MySQL Table Structure
+| id | color_path | depth_path | infrared_path | ply_path |
+| -- | ---------- | ---------- | ------------- | -------- |
