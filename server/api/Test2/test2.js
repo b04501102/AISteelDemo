@@ -1,15 +1,16 @@
 const router = require('express').Router()
-const connection = require('mysql').createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'rainforest',
+const pool = require('mysql').createPool({
+  host: '166.62.30.147',
+  user: 'rainforest80256',
+  password: 'DGWmzC3Bya8pcjE',
   database: 'AISteel'
 })
 const fs = require('fs')
 
 router.get('/', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  connection.query('Select id, color_path from Test2', (err, response) => {
+  pool.query('Select id, color_path from Test2', (err, response) => {
+    console.
     res.send(response.map(e => {
       return {
         id: e.id,
@@ -20,25 +21,25 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id/color', (req, res) => {
-  connection.query('Select * from Test2', (err, response) => {
+  pool.query('Select * from Test2', (err, response) => {
     res.sendFile(response[0].color_path)
   })
 })
 
 router.get('/:id/depth', (req, res) => {
-  connection.query('Select * from Test2', (err, response) => {
+  pool.query('Select * from Test2', (err, response) => {
     res.sendFile(response[0].depth_path)
-  })
+  })  
 })
 
 router.get('/:id/infrared', (req, res) => {
-  connection.query('Select * from Test2', (err, response) => {
+  pool.query('Select * from Test2', (err, response) => {
     res.sendFile(response[0].infrared_path)
   })
 })
 
 router.get('/:id/ply', (req, res) => {
-  connection.query('Select * from Test2', (err, response) => {
+  pool.query('Select * from Test2', (err, response) => {
     res.sendFile(response[0].ply_path)
   })
 })
