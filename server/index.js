@@ -13,6 +13,6 @@ app.get('/', function (req, res) {
 
 app.use('/api/test2', require('./api/Test2/test2'))
 
-app.listen(3000, () => {
-  console.log('Example app listening on port 3000!')
+app.listen(4000, () => {
+  console.log(`Example app listening on port ${4000}!`)
 })

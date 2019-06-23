@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('http://140.112.253.162:4000/api/test2/').then(response => {
+    axios.get('http://rainforest.tools:4000/api/test2/').then(response => {
       this.test2 = response.data
     })
   },
