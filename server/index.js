@@ -1,5 +1,6 @@
 const { resolve } = require('path')
-const history = require('connect-history-api-fallback')
+const bodyParser = require('body-parser')
+const fs = require('fs')
 const express = require('express')
 const app = express()
 
@@ -11,11 +12,17 @@ app.use((req, res, next) => {
   next()
 })
 
-const publicPath = resolve(__dirname, '../client/dist')
-const staticConf = { maxAge: '1y', etag: false }
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 
-app.use(express.static(publicPath, staticConf))
-app.use('/', history())
+app.use(express.static(resolve(__dirname, '../client/dist')))
+
+app.get('*', function (req, res) {
+  const html = fs.readFileSync(resolve(__dirname, '../client/dist/index.html'), 'utf-8')
+  res.send(html)
+})
 
 // app.get('/', function (req, res) {
 //   res.send('Hello World!')
