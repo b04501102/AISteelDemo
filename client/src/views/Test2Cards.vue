@@ -4,14 +4,14 @@
       router-link.navbar-brand.text-left.px-0(to='/') ←
     .row.mb-sm-3
       .col-sm-4
-        ImageCard(title='Color Image' :url='"http://rainforest.tools:4000/api/test2/" + $route.params.id + "/color"')
+        ImageCard(title='Color Image' :url='"http://localhost:4000/api/test2/" + $route.params.id + "/color"')
       .col-sm-4
-        ImageCard(title='Depth Image' :url='"http://rainforest.tools:4000/api/test2/" + $route.params.id + "/depth"')
+        ImageCard(title='Depth Image' :url='"http://localhost:4000/api/test2/" + $route.params.id + "/depth"')
       .col-sm-4
-        ImageCard(title='Infrared Image' :url='"http://rainforest.tools:4000/api/test2/" + $route.params.id + "/infrared"')
+        ImageCard(title='Infrared Image' :url='"http://localhost:4000/api/test2/" + $route.params.id + "/infrared"')
     .row
       .col-sm-12
-        PLYCard(title='PLY Model' :url='"http://rainforest.tools:4000/api/test2/" + $route.params.id + "/ply"')
+        PLYCard(title='PLY Model' :url='"http://localhost:4000/api/test2/" + $route.params.id + "/ply"')
 </template>
 
 <script>
